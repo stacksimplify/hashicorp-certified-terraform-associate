@@ -1,5 +1,5 @@
 # HashiCorp Certified: Terraform Associate - 50 Practical Demos
-[![Image](hashicorp-certified-terraform-associate-highest-rated.png "HashiCorp Certified: Terraform Associate - 50 Practical Demos")](https://links.stacksimplify.com/hashicorp-certified-terraform-associate){:target="_blank"}
+[![Image](hashicorp-certified-terraform-associate-highest-rated.png "HashiCorp Certified: Terraform Associate - 50 Practical Demos")](https://links.stacksimplify.com/hashicorp-certified-terraform-associate)
 
 ## Course Modules
 01. Infrastructure as Code (IaC)
