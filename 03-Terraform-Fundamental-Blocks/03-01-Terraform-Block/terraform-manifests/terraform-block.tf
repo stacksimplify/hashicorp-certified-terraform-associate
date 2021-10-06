@@ -14,6 +14,11 @@ terraform {
   }
 }
 
+provider "aws" {
+  region = "eu-west-1"
+  profile = "default"
+}
+
 /*
 Play with Terraform Version
   required_version = "~> 0.14.3" 
