@@ -1,12 +1,10 @@
-# Resource-8: Create EC2 Instance
-resource "aws_instance" "my-ec2-vm" {
-  ami                    = "ami-047a51fa27710816e" # Amazon Linux
+resource "aws_instance" "my-test-instance" {
+  ami                    = "ami-0d1bf5b68307103c2"
   instance_type          = "t2.micro"
   key_name               = "AWSS3_Instance_MayurAWS1"
-  subnet_id              = aws_subnet.vpc-dev-public-subnet-1.id
-  vpc_security_group_ids = [aws_security_group.dev-vpc-sg.id]
-  #user_data = file("apache-install.sh")
-  user_data = <<-EOF
+  subnet_id              = aws_subnet.my-test-subnet.id
+  vpc_security_group_ids = [aws_security_group.my-test-security-group.id]
+  user_data              = <<-EOF
     #!/bin/bash
     sudo yum update -y
     sudo yum install httpd -y
@@ -16,8 +14,5 @@ resource "aws_instance" "my-ec2-vm" {
     EOF
   tags = {
     "Name" = "myec2vm"
-  }    
+  }
 }
-
-
-
