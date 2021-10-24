@@ -4,5 +4,5 @@ module "website_s3_bucket" {
   version = "1.0.1"
   # insert required variables here
   bucket_name = var.my_s3_bucket
-  tags = var.my_s3_tags
+  bucket_tags = var.my_s3_tags
 }
