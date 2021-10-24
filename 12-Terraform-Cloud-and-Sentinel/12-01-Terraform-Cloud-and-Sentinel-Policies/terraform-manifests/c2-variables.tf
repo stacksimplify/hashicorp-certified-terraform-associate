@@ -2,7 +2,7 @@
 variable "aws_region" {
   description = "Region in which AWS Resources to be created"
   type = string
-  default = "us-east-1"
+  default = "eu-west-1"
 }
 
 # Input variable definitions
@@ -10,7 +10,7 @@ variable "aws_region" {
 variable "bucket_name" {
   description = "Name of the S3 bucket. Must be Unique across AWS"
   type        = string
-  default = "mybucket-1061"
+  default = "testbucketofmayur-3"
 }
 
 variable "tags" {
