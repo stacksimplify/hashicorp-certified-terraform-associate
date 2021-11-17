@@ -2,7 +2,7 @@
 resource "aws_instance" "my-ec2-vm" {
   ami           = data.aws_ami.amzlinux.id 
   instance_type = var.instance_type
-  key_name      = "terraform-key"
+  key_name      = "AWS-S3-Mayur-Key2"
   #count = terraform.workspace == "default" ? 1 : 1    
 	user_data = file("apache-install.sh")  
   vpc_security_group_ids = [aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id]
@@ -42,6 +42,12 @@ resource "aws_instance" "my-ec2-vm" {
     source      = "apps/app2/" # when "/" at the end is added - CONTENTS of FOLDER WILL BE COPIED
     destination = "/tmp"
   }
+
+    provisioner "file" {
+    source      = "apps/file-copy.html" # when "/" at the end is added - CONTENTS of FOLDER WILL BE COPIED
+    destination = "/var/www/html/file-copy.html"    
+    on_failure = continue
+    }
 
 
 /*

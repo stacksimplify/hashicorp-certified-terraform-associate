@@ -11,12 +11,12 @@ resource "aws_s3_bucket" "mys3bucket" {
     prod = "my-papp-bucket"
   }
 
-  bucket = "${each.key}-${each.value}"
+  bucket = "mayurhastak-${each.key}-${each.value}"
   acl    = "private"
 
   tags = {
     Environment = each.key
-    bucketname  = "${each.key}-${each.value}"
+    bucketname  = "mayurhastak-${each.key}-${each.value}"
     eachvalue   = each.value
   }
 }

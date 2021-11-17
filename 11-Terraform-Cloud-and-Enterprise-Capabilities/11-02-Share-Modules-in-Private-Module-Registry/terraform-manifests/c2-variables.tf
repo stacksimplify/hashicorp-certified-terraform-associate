@@ -2,7 +2,7 @@
 variable "aws_region" {
   description = "Region in which AWS Resources to be created"
   type = string
-  default = "us-east-1"
+  default = "eu-west-1"
 }
 
 ## Create Variable for S3 Bucket Name
@@ -17,7 +17,7 @@ variable "my_s3_tags" {
   description = "Tags to set on the bucket"
   type = map(string)
   default = {
-    Terraform = "true"
+    Terraform1 = "true"
     Environment = "dev"
     newtag1 = "tag1"
     newtag2 = "tag2"

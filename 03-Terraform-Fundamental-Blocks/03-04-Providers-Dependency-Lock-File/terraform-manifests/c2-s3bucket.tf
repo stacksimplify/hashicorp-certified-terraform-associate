@@ -8,5 +8,5 @@ resource "random_pet" "petname" {
 resource "aws_s3_bucket" "sample" {
   bucket = random_pet.petname.id
   acl    = "public-read"
-  region = "us-east-1"  # Comment this if we are going to use AWS Provider v3.x version
+  #region = "eu-west-1"  # Comment this if we are going to use AWS Provider v3.x version
 }

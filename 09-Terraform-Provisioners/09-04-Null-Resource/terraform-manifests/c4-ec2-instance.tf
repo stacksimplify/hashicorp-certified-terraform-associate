@@ -2,7 +2,7 @@
 resource "aws_instance" "my-ec2-vm" {
   ami           = data.aws_ami.amzlinux.id 
   instance_type = var.instance_type
-  key_name      = "terraform-key"
+  key_name      = "AWS-S3-Mayur-Key2"
   #count = terraform.workspace == "default" ? 1 : 1    
 	user_data = file("apache-install.sh")  
   vpc_security_group_ids = [aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id]
@@ -42,7 +42,7 @@ resource "null_resource" "sync_app1_static" {
 # Copies the /tmp/app1 folder to Apache Webserver /var/www/html directory
   provisioner "remote-exec" {
     inline = [
-      "sudo cp -r /tmp/app1 /var/www/html"
+      "sudo cp -r /tmp/app1/file1.html /var/www/html/index.html"
     ]
   }
 }
