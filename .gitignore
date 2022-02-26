@@ -17,3 +17,7 @@
 
 # Ignore .pem files
 #*.pem
+
+# exclude the notes
+*Notes*
+*notes*
