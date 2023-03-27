@@ -18,12 +18,12 @@
 - Accordingly using this information build your filters in datasource
 
 ## Step-03: Reference the datasource in ec2-instance.tf
-```
+```t
   ami           = data.aws_ami.amzlinux.id 
 ```
 
 ## Step-04: Test using Terraform commands
-```
+```t
 # Initialize Terraform
 terraform init
 
