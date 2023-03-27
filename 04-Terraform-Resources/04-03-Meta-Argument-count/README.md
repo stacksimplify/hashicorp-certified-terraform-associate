@@ -67,7 +67,7 @@ terraform apply
 
 
 ## Step-04: Destroy Terraform Resources
-```
+```t
 # Destroy Terraform Resources
 terraform destroy
 
