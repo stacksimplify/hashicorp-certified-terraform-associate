@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "mys3bucket" {
   }
 
   bucket = "${each.key}-${each.value}"
-  acl    = "private"
+  
 
   tags = {
     Environment = each.key
@@ -20,3 +20,13 @@ resource "aws_s3_bucket" "mys3bucket" {
     eachvalue   = each.value
   }
 }
+
+resource "aws_s3_bucket_acl" "mys3buck" {
+  for_each = aws_s3_bucket.mys3bucket
+
+  bucket   = each.value.bucket
+  acl      = "private"
+  
+}
+
+
