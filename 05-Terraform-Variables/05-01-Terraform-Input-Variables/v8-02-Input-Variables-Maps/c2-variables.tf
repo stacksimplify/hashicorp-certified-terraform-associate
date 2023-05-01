@@ -8,7 +8,7 @@ variable "aws_region" {
 variable "ec2_ami_id" {
   description = "AMI ID"
   type        = string
-  default     = "ami-0915bcb5fa77e4892" # Amazon2 Linux AMI ID
+  default     = "ami-03c7d01cf4dedc891" # Amazon2 Linux AMI ID
 }
 
 variable "ec2_instance_count" {
