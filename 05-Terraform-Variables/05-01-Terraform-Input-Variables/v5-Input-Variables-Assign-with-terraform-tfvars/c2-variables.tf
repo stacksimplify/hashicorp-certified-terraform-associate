@@ -19,6 +19,6 @@ variable "ec2_instance_count" {
 
 variable "ec2_instance_type" {
   description = "EC2 Instance Type"
-  type = string
-  default = "t3.micro"
+  type        = string
+  default     = "t3.micro"
 }
