@@ -32,7 +32,7 @@ Another use case (at least for me) for locals is to shorten references on upstre
 
 
 ## Step-03: Test the Terraform configuration using commands
-```
+```t
 # Initialize Terraform
 terraform init
 

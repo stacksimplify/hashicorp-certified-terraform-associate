@@ -61,7 +61,7 @@ rm -rf terraform.tfstate*
 - Add a new variable in `variables.tf` named `ec2_instance_type` without any default value. 
 - As the variable doesn't have any default value when you execute `terraform plan` or `terraform apply` it will prompt for the variable. 
 
-```
+```t
 # Initialize Terraform
 terraform init
 
@@ -78,7 +78,7 @@ terraform plan
 ## Step-03: Input Variables Override default value with cli argument `-var`
 - **Reference Sub folder:** v3-Input-Variables-Override-default-with-cli
 - We are going to override the default values defined in `variables.tf` by providing new values using the `-var` argument using CLI
-```
+```t
 # Initialize Terraform
 terraform init
 
@@ -106,7 +106,7 @@ terraform apply v3out.plan
 ## Step-04: Input Variables Override with Environment Variables
 - **Reference Sub folder:** v4-Input-Variables-Override-with-Environment-Variables
 - Set environment variables and execute `terraform plan` to see if it overrides default values 
-```
+```t
 # Sample
 export TF_VAR_variable_name=value
 
@@ -137,7 +137,7 @@ echo $TF_VAR_ec2_instance_count, $TF_VAR_ec2_instance_type
 - **Reference Sub folder:** v5-Input-Variables-Assign-with-terraform-tfvars
 - Create a file named `terraform.tfvars` and define variables
 - If the file name is `terraform.tfvars`, terraform will auto-load the variables present in this file by overriding the `default` values in `variables.tf`
-```
+```t
 # Initialize Terraform
 terraform init
 
@@ -165,7 +165,7 @@ http://<Elastic-IP-Address>
   - **terraform.tfvars:** ec2_instance_count variable will be picked from this file
   - **web.tfvars:** ec2_instance_type variable will be picked from this file
   - **app.tfvars:** ec2_instance_type variable will be picked from this file
-```
+```t
 # Initialize Terraform
 terraform init
 
@@ -184,7 +184,7 @@ terraform plan -var-file="app.tfvars"
 - **Reference Sub folder:** v7-Input-Variables-Assign-with-auto-tfvars
 - We will create a file with extension as `.auto.tfvars`. 
 - With this extension, whatever may be the file name, the variables inside these files will be auto loaded during `terraform plan or apply`
-```
+```t
 # Initialize Terraform
 terraform init
 
@@ -203,7 +203,7 @@ terraform plan
 ### Step-08-01: Implement Vairable Type as List
 - **list (or tuple):** a sequence of values, like ["us-west-1a", "us-west-1c"]. Elements in a list or tuple are identified by consecutive whole numbers, starting with zero.
 - Implement List function for variable `ec2_instance_type`
-```
+```t
 # Implement List Function in variables.tf
 variable "ec2_instance_type" {
   description = "EC2 Instance Type"
@@ -232,7 +232,7 @@ terraform plan
 ### Step-08-02: Implement Vairable Type as Map
 - **map (or object):** a group of values identified by named labels, like {name = "Mabel", age = 52}.
 - Implement Map function for variable `ec2_instance_tags`
-```
+```t
 # Implement Map Function for tags
 variable "ec2_instance_tags" {
   description = "EC2 Instance Tags"
@@ -312,7 +312,7 @@ substr("stack simplify", 0, 10)
 ```
 
 ### Step-09-03: Implement Validation Rule for ec2_ami_id variable
-```
+```t
 variable "ec2_ami_id" {
   description = "AMI ID"
   type = string  
@@ -348,7 +348,7 @@ terraform plan
 - Terraform will `redact` these values in command output and log files, and raise an error when it detects that they will be exposed in other ways.
 - **Important Note-1:** Never check-in `secrets.tfvars` to git repositories
 - **Important Note-2:** Terraform state file contains values for these sensitive variables `terraform.tfstate`. You must keep your state file secure to avoid exposing this data.
-```
+```t
 # Initialize Terraform
 terraform init
 

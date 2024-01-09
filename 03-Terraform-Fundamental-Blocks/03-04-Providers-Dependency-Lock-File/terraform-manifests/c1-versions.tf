@@ -1,7 +1,7 @@
 # Terraform Settings Block
 terraform {
   # Terraform Version
-  required_version = "~> 0.14.6"
+  required_version = ">= 1.4.1"
   required_providers {
     # AWS Provider 
     aws = {
