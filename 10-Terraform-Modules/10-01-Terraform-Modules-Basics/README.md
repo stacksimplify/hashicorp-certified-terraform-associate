@@ -128,5 +128,86 @@ rm -rf terraform.tfstate*
 - [Meta-Arguments for Modules](https://www.terraform.io/docs/language/modules/syntax.html#meta-arguments)
 
 
+## Step-08: Upgrade Terraform Module from v2.x to v5.x
+- **Terraform Manifests Folder:** terraform-manifests-upgraded
+- **File:** c4-ec2instance-module.tf
+```t
+# AWS EC2 Instance Module
+module "ec2_cluster" {
+  source                 = "terraform-aws-modules/ec2-instance/aws"
+  version                = "~> 5.0"
+
+  name                   = "my-modules-demo"
+
+  ami                    = data.aws_ami.amzlinux.id 
+  instance_type          = "t2.micro"
+  key_name               = "terraform-key"
+  monitoring             = true
+  vpc_security_group_ids = ["sg-b8406afc"] # Get Default VPC Security Group ID and replace
+  subnet_id              = "subnet-4ee95470" # Get one public subnet id from default vpc and replace
+  user_data              = file("apache-install.sh") 
+
+# Module Upgrade from v2.x to v5.x 
+## In v2.x module, Meta-argument count is used
+## In v5.x module, Meta-argument for_each is used
+  #instance_count         = 2
+  for_each = toset(["one", "two", "three"])
+
+  tags = {
+    Name        = "Modules-Demo-${each.key}"
+    Terraform   = "true"
+    Environment = "dev"
+  }
+}
+```
+
+## Step-09: Update Terraform EC2 Instance module outputs to support latest version upgrade changes
+- **Terraform Manifests Folder:** terraform-manifests-upgraded
+- **File:** c5-outputs.tf
+```t
+# Output variable definitions
+
+output "ec2_instance_public_ip" {
+  description = "Public IP Addressess of EC2 Instances"
+  #value = module.ec2_cluster.*.public_ip
+  value = [for ec2_cluster in module.ec2_cluster: ec2_cluster.id ]   
+}
+
+output "ec2_instance_public_dns" {
+  description = "Public DNS for EC2 Instances"
+  #value = module.ec2_cluster.*.public_dns
+  value = [for ec2_cluster in module.ec2_cluster: ec2_cluster.public_dns ] 
+}
+
+output "ec2_instance_private_ip" {
+  description = "Private IP Addresses for EC2 Instances"
+  #value = module.ec2_cluster.*.private_ip
+  value = [for ec2_cluster in module.ec2_cluster: ec2_cluster.private_ip ] 
+}
+```
+
+## Step-10: Execute Terraform Commands and Verify
+- **Terraform Manifests Folder:** terraform-manifests-upgraded
+```t
+# Terraform Initialize
+cd terraform-manifests-upgraded
+terraform init
+
+# Terraform Validate
+terraform validate
+
+# Terraform Plan
+terraform plan
+
+# Terraform Apply
+terraform apply -auto-approve
+
+# Verify Application
+1. Verify EC2 Instances
+2. Verify Application installed (Access using browser with EC2 Instance Public IP)
+http://<EC2-Instance-Public-IP>
+```
+
+
 ## References
 - [Terraform EC2 Instance Module](https://registry.terraform.io/modules/terraform-aws-modules/ec2-instance/aws/latest)

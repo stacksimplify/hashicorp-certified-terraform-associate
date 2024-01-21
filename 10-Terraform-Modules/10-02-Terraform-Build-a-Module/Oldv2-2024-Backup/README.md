@@ -1,7 +1,3 @@
----
-title: Build Terraform Module from Scratch
-description: Create Terraform Modules locally
----
 # Build a Terraform Module
 
 ## Step-01: Introduction
