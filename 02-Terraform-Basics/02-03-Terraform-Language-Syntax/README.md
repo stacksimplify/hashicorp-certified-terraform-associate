@@ -6,7 +6,7 @@
   - Understand Arguments, Attributes & Meta-Arguments
   - Understand Identifiers
   - Understand Comments
- 
+  
 
 
 ## Step-02: Terraform Configuration Language Syntax
