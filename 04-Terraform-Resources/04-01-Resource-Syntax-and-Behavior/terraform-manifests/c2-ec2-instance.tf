@@ -10,5 +10,5 @@ resource "aws_instance" "my-ec2-vm" {
     "Name" = "web"
     #"tag1" = "Update-test-1"    
   }
-}
+}       
 
