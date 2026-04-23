@@ -97,9 +97,12 @@ http://<Public-IP-VM2>
 # List Resources from State
 terraform state list
 
-# Taint a Resource
+# Taint a Resource - Single instance Scenario
 terraform taint <RESOURCE-NAME>
-terraform taint module.ec2_cluster.aws_instance.this[0]
+terraform taint 'module.ec2_cluster.aws_instance.this[0]'
+
+# List a resource using multi-resource scenario
+terraform taint 'module.ec2_instance["1"].aws_instance.this[0]'
 
 # Terraform Plan
 terraform plan
