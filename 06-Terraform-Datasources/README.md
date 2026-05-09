@@ -4,7 +4,7 @@
 - Understand about Datasources in Terraform
 - Implement a sample usecase with Datasources.
 - Get the latest Amazon Linux 2 AMI ID using datasources and reference that value when creating EC2 Instance resource `ami = data.aws_ami.amzlinux.id`
-
+#change to test rebase
 ## Step-02: Create a Datasource to fetch latest AMI ID
 - Create or review manifest `c6-ami-datasource.tf`
 - Go to AWS Mgmt Console -> Services -> EC2 -> Images -> AMI 

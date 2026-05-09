@@ -1,3 +1,5 @@
+
+#mark the new changes to test creation of a new release
 # Create S3 Bucket Resource
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.bucket_name
