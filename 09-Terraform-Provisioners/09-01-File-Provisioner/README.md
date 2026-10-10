@@ -15,7 +15,7 @@
 - Provisioner Without a Resource  (Null Resource)
 
 ## Pre-requisites
-- Create a EC2 Key pain with name `terraform-key` and copy the `terraform-key.pem` file in the folder `private-key` in `terraform-manifest` folder
+- Create a EC2 Key pair with name `terraform-key` and copy the `terraform-key.pem` file in the folder `private-key` in `terraform-manifest` folder
 - Connection Block for provisioners uses this to connect to newly created EC2 instance to copy files using `file provisioner`, execute scripts using `remote-exec provisioner`
 
 ## Step-01: Introduction
